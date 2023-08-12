@@ -66,11 +66,11 @@ const createMeme = async (req, res) => {
 
 const getMeme = async (req, res) => {
   logger.info(`${req.method}: ${req.originalUrl}`);
-  logger.info(`${req.body}`);
+  logger.info(`${req.query.tag}`);
   const dbInstance = await db.getInstance();
 
   try {
-    const result = await dbInstance.query(queries.getMeme(req.body.tag));
+    const result = await dbInstance.query(queries.getMeme(req.query.tag));
     logger.info(result.rows);
     res.send({ data: result.rows });
   } catch (error) {
