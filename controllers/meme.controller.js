@@ -38,19 +38,16 @@ const createMeme = async (req, res) => {
     }
 
     const { user_id, tag } = req.body;
+    const image_url = req.file.location;
 
     try {
-      const signedUrl = s3.getSignedUrl("getObject", {
-        Bucket: "makememe",
-        Key: req.file.key,
-        expires: null,
-      });
+      
 
       const meme_id = uuidv4();
       const result = await dbInstance.query(queries.createMeme(), [
         meme_id,
         user_id,
-        signedUrl,
+        image_url,
         tag,
       ]);
 
