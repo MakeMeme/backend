@@ -1,5 +1,7 @@
 const express = require("express");
-const { checkDb, getUsers, getMemes } = require("../controllers/db.controller");
+const { checkDb } = require("../controllers/db.controller");
+const { getUsers } = require("../controllers/users.controller");
+const { getMemes } = require("../controllers/memes.controller");
 const router = express.Router();
 
 router.get("/check", checkDb);
