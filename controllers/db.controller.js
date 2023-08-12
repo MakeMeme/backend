@@ -19,3 +19,4 @@ const checkDb = async (req, res) => {
 };
 
 module.exports = { checkDb };
+
