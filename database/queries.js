@@ -6,7 +6,7 @@ const queries = {
         `;
     return checkDbInstanceQuery;
   },
-  
+
   checkUsersTable: () => {
     const checkUsersTableQuery = `
         SELECT * FROM users
@@ -14,11 +14,11 @@ const queries = {
     return checkUsersTableQuery;
   },
 
-  checkMemesTable: () => {
-    const checkMemesTableQuery = `
-    SELECT * FROM memes A inner join coordinates B on A.meme_id = B.meme_id;
+  getMeme: (tag) => {
+    const getMemeQuery = `
+    SELECT * FROM public.memes A inner join public.coordinates B on A.meme_id = B.meme_id where A.tag = '${tag}';
   `;
-    return checkMemesTableQuery;
+    return getMemeQuery;
   },
   createMeme: () => {
     const createMemeQuery = `INSERT INTO memes (meme_id, user_id, image_url, tag) VALUES ($1, $2, $3, $4) RETURNING *`;
