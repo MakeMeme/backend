@@ -2,7 +2,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -26,3 +25,5 @@ app.listen(PORT, (err) => {
   if (err) logger.error(err);
   else logger.info(`Server up and running at ${PORT}`);
 });
+
+module.exports = app;

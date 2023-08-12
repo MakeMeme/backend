@@ -131,3 +131,5 @@ dist
 
 # certificates
 *.crt
+
+*.yml

@@ -1,7 +1,7 @@
 const express = require("express");
-const { checkDb } = require("../controllers/db.controller");
+const controller = require("../controllers/db.controller");
 const router = express.Router();
 
-router.get("/check", checkDb);
+router.get("/check", controller.checkDb);
 
 module.exports = router;
